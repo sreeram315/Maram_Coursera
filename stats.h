@@ -30,7 +30,12 @@
  *@param 1) Array whose statistics are to be printed, 2) size of the same array
  *@return void
  */
-void print_statistics(unsigned char *a,int n)
+void print_statistics(unsigned char *a,int n){
+	printf("miminum = %d\n",find_minimum(a,n));
+	printf("maximum = %d\n",find_maximum(a,n));
+	printf("median = %d\n",find_median(a,n));
+	printf("mean = %d\n",find_mean(a,n));
+}
 
 /**
  * @brief Prints the contents of an array
@@ -42,7 +47,11 @@ void print_statistics(unsigned char *a,int n)
  *@return void
  */
 
-void print_array(unsigned char *a, int n)
+void print_array(unsigned char *a, int n){
+	for (int i=0;i<n;i++)
+		printf("%d ",a[i]);
+	printf("\n");
+}
 
 /**
  * @brief Returns the median of given array
@@ -54,7 +63,14 @@ void print_array(unsigned char *a, int n)
  *@return median of given array
  */
 
-int find_median(unsigned char *a,int n)
+int find_median(unsigned char *a,int n){
+	if(n%2==1){
+		int k = (n+1)/2;
+		return a[k];
+	}
+	int k = n/2;
+	return ((a[k]+a[k+1])/2);
+}
 
 /**
  * @brief Returns the mean of given array
@@ -66,7 +82,12 @@ int find_median(unsigned char *a,int n)
  *@return median of given array
  */
 
-int find_mean(unsigned char *a,int n)
+int find_mean(unsigned char *a,int n){
+	int mean=0;
+	for (int i=0;i<n;i++)
+		mean+=a[i];
+	return mean/n;
+}
 
 /**
  * @brief Returns the maximum number of given array
@@ -78,7 +99,14 @@ int find_mean(unsigned char *a,int n)
  *@return maximum of given array
  */
 
-int find_maximum(unsigned char *a, int n)
+int find_maximum(unsigned char *a, int n){
+	int max=0;
+	for (int i=0;i<n;i++){
+		if(a[i]>max)
+			max=a[i];
+	}
+	return max;
+}
 
 /**
  * @brief Returns the minimum of given array of elements
@@ -90,7 +118,16 @@ int find_maximum(unsigned char *a, int n)
  *@return minimum of the given array
  */
 
-int find_minimum(unsigned char *a, int n)
+int find_minimum(unsigned char *a, int n){
+	int min=a[0];
+	for (int i=0;i<n;i++){
+		if (a[i]<min){
+			min=a[i];
+		}
+	}
+	return min;
+}
+
 /**
  * @brief Sorts the given array in descending order
  * 
@@ -100,7 +137,19 @@ int find_minimum(unsigned char *a, int n)
  *@param 1) Array whose values to be calculated, 2) size of the same array
  *@return void
  */
-void sort_array(unsigned char *a,int n)
+void sort_array(unsigned char *a,int n){
+	int temp;
+	for (int i=0;i<n;i++){
+		for (int j=i+1;j<n;j++){
+			if(a[j]>a[i]){
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+}
+
 
 /**
  * @brief <Add Brief Description of Function Here>
