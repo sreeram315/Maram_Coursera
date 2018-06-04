@@ -38,6 +38,10 @@ void main() {
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
 
+ sort_array(test,SIZE);
+ print_statistics(test,SIZE);
+ print_array(test,SIZE);
+
 }
 
 /* Add other Implementation File Code Here */
